@@ -17,6 +17,7 @@
 package com.example.android.trackmysleepquality.sleeptracker
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
@@ -44,13 +45,6 @@ class SleepTrackerViewModel(
     //TODO (12) Transform nights into a nightsString using formatNights(). //DONE
     val nightsString = Transformations.map(nights) { nights ->
         formatNights(nights, application.resources)
-    }
-    //TODO (01) Declare Job() and cancel jobs in onCleared(). //DONE
-    private var viewModelJob = Job()
-
-    override fun onCleared() {
-        super.onCleared()
-        viewModelJob.complete()
     }
 
     //TODO (05) In an init block, initializeTonight(), and implement it to launch a coroutine //DONE
